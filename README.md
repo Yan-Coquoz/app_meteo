@@ -1,5 +1,14 @@
-# app_meteo
+# App_meteo
+---
 
+ **adresse de l'API**
+https://openweathermap.org/
+
+ **adresse pour l'appel API**
+https://openweathermap.org/current#one
+
+
+---
 ## Project setup
 ```
 npm install

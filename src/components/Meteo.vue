@@ -7,7 +7,7 @@
         id="position"
         type="text"
         class="form-control"
-        v-model="requete"
+        v-model="inputReq"
         v-on:keypress="getMeteo"
       />
     </div>
@@ -22,26 +22,35 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Meteo",
-  props: {},
+  data() {
+    return {
+      inputReq: "",
+      temps: undefined,
+      apiKey: "67f7b3cd740899b4fbe49b4494d34b83",
+      base_url: "https://api.openweathermap.org/data/2.5/weather?",
+    };
+  },
+  methods: {
+    getMeteo(evt) {
+      // lancement de la inputReq avec la touche enter
+      if (evt.key === "Enter") {
+        console.log(this.apikey);
+        axios
+          .get(
+            `${this.base_url}q=${this.inputReq}&units=metric&appid=${this.apiKey}&lang=fr`,
+          )
+          .then((response) => {
+            this.temps = response.data;
+          });
+        // vide l'input
+        this.inputReq = "";
+      }
+    },
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style></style>
