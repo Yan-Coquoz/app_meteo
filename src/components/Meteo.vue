@@ -13,7 +13,7 @@
     </div>
     <div class="w-75 m-auto" v-if="temps" id="modale">
       <h3 class="text-center mb-4" id="city">Position : {{ temps.name }}</h3>
-      <div class="card text-center p-5 rad-15">
+      <div class="card text-center p-5 border-light">
         <p class="text_affichage">
           Température : {{ temps.main.temp.toFixed() }}°
         </p>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { APIKEY } from "../../env";
 import axios from "axios";
 export default {
   name: "Meteo",
@@ -31,7 +32,7 @@ export default {
     return {
       inputReq: "",
       temps: undefined,
-      apiKey: "67f7b3cd740899b4fbe49b4494d34b83",
+      apiKey: APIKEY,
       base_url: "https://api.openweathermap.org/data/2.5/weather?",
     };
   },

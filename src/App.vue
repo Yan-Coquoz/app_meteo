@@ -17,6 +17,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Irish+Grover&display=swap");
+
 body {
   background: #ff4e50; /* fallback for old browsers */
   background: -webkit-linear-gradient(
