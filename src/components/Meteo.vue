@@ -11,11 +11,13 @@
         v-on:keypress="getMeteo"
       />
     </div>
-    <div class="w-75 m-auto">
-      <h3 class="text-center mb-4">Position : localité</h3>
+    <div class="w-75 m-auto" v-if="temps" id="modale">
+      <h3 class="text-center mb-4" id="city">Position : {{ temps.name }}</h3>
       <div class="card text-center p-5 rad-15">
-        <p class="text-affichage">Température : les degrés</p>
-        <p class="texte-affichage">Temps : visuel</p>
+        <p class="text_affichage">
+          Température : {{ temps.main.temp.toFixed() }}°
+        </p>
+        <p class="text_affichage">Temps : {{ temps.weather[0].description }}</p>
       </div>
     </div>
   </div>
@@ -44,6 +46,7 @@ export default {
           )
           .then((response) => {
             this.temps = response.data;
+            console.log(this.temps);
           });
         // vide l'input
         this.inputReq = "";
@@ -53,4 +56,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text_affichage {
+  font-size: 3em;
+}
+#city {
+  font-size: 3em;
+  font-weight: bold;
+}
+.card {
+  background: rgb(124, 178, 230);
+}
+</style>

@@ -7,6 +7,11 @@ https://openweathermap.org/
  **adresse pour l'appel API**
 https://openweathermap.org/current#one
 
+**Pour le style de BG** 
+[uigradiant](https://uigradients.com/#Reef)
+
+**bootstrap**
+https://bootstrap-vue.org/
 
 ---
 ## Project setup
